@@ -3,11 +3,13 @@ package com.christopherbare.inclass03.feature;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
-public class Student {
-String name;
-String email;
-String department;
-int mood;
+import java.io.Serializable;
+
+public class Student implements Serializable{
+private String name;
+private String email;
+private String department;
+private int mood;
 
     public Student(String name, String email, String department, int mood) {
         this.name = name;

@@ -12,7 +12,11 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
+import java.io.Serializable;
+
 public class MainActivity extends AppCompatActivity {
+    final static String STUDENT_KEY = "STUDENT";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +38,10 @@ public class MainActivity extends AppCompatActivity {
                 Student student = new Student(name.getText().toString(), email.getText().toString(), department.getText().toString(), currentMood);
                 Log.d("info", student.toString());
 
-                if (!student.name.equals("") || !student.email.equals("")) {
+                if (!student.getName().equals("") || !student.getEmail().equals("")) {
                     Intent intent = new Intent(MainActivity.this, DisplayActivity.class);
+                    intent.putExtra(STUDENT_KEY, student);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Please enter all the required fields!",
                             Toast.LENGTH_SHORT).show();
