@@ -27,12 +27,12 @@ public class DisplayActivity extends AppCompatActivity {
             String departmentString = student.getDepartment();
             String moodString = student.getMoodString();
 
-            //if (nameString != null && emailString != null && departmentString != null) {
+            if (nameString != null && emailString != null && departmentString != null) {
                 name.setText("Name: " + nameString);
                 email.setText("Email: " + emailString);
                 department.setText("Department: " + departmentString);
                 mood.setText("Mood: " + moodString);
-            //}
+            }
 
         }
 
