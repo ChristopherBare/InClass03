@@ -33,8 +33,6 @@ public class DisplayActivity extends AppCompatActivity {
                 department.setText("Department: " + departmentString);
                 mood.setText("Mood: " + moodString);
             }
-
         }
-
     }
 }
