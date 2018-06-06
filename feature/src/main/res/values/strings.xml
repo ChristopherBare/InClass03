@@ -14,5 +14,6 @@
     <string name="moodText">Mood:</string>
     <string name="studentInfo">Student Information:</string>
     <string name="image">image</string>
+    <string name="save">Save</string>
 
 </resources>
