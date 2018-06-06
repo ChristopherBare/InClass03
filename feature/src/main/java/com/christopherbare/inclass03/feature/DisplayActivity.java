@@ -7,12 +7,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
 public class DisplayActivity extends AppCompatActivity {
     final static String STUDENT_KEY = "STUDENT";
     Student passStudent;
+
+    final static String NAME_KEY = "NAME";
+    final static String EMAIL_KEY = "EMAIL";
+    final static String RADIO_KEY = "RADIO";
+    final static String MOOD_KEY = "MOOD";
+
+    final static int NAME_CODE = 0;
+    final static int EMAIL_CODE = 1;
+    final static int RADIO_CODE = 2;
+    final static int MOOD_CODE = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +63,9 @@ public class DisplayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DisplayActivity.this, EditActivity.class);
-                intent.putExtra(STUDENT_KEY, passStudent);
-                startActivity(intent);
+                intent.putExtra(MainActivity.STUDENT_KEY, passStudent);
+                intent.putExtra(NAME_KEY, true);
+                startActivityForResult(intent, NAME_CODE);
             }
         });
 
@@ -61,8 +73,9 @@ public class DisplayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DisplayActivity.this, EditActivity.class);
-                intent.putExtra(STUDENT_KEY, passStudent);
-                startActivity(intent);
+                intent.putExtra(MainActivity.STUDENT_KEY, passStudent);
+                intent.putExtra(EMAIL_KEY, true);
+                startActivityForResult(intent, EMAIL_CODE);
             }
         });
 
@@ -70,8 +83,9 @@ public class DisplayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DisplayActivity.this, EditActivity.class);
-                intent.putExtra(STUDENT_KEY, passStudent);
-                startActivity(intent);
+                intent.putExtra(MainActivity.STUDENT_KEY, passStudent);
+                intent.putExtra(RADIO_KEY, true);
+                startActivityForResult(intent, RADIO_CODE);
             }
         });
 
@@ -79,10 +93,51 @@ public class DisplayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DisplayActivity.this, EditActivity.class);
-                intent.putExtra(STUDENT_KEY, passStudent);
-                startActivity(intent);
+                intent.putExtra(MainActivity.STUDENT_KEY, passStudent);
+                intent.putExtra(MOOD_KEY, true);
+                startActivityForResult(intent, MOOD_CODE);
             }
         });
 
     }
+
+
+    //Handle the information that comes back when the student edits his/her information
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+
+            //if name changed
+            if (requestCode == NAME_CODE) {
+                passStudent.setName(data.getExtras().getString(NAME_KEY));
+                TextView name_view = (TextView) findViewById(R.id.textView);
+                name_view.setText(passStudent.getName());
+            }
+
+            //if email changed
+            if (requestCode == EMAIL_CODE) {
+                passStudent.setEmail(data.getExtras().getString(EMAIL_KEY));
+                TextView email_view = (TextView) findViewById(R.id.textView4);
+                email_view.setText(passStudent.getEmail());
+            }
+
+            //if department changed
+            if (requestCode == RADIO_CODE) {
+                passStudent.setDepartment(data.getExtras().getString(RADIO_KEY));
+                TextView radio_view = (TextView) findViewById(R.id.textView5);
+                radio_view.setText(passStudent.getDepartment());
+            }
+
+            //if mood changed
+            if (requestCode == MOOD_CODE) {
+                passStudent.setMood(data.getExtras().getInt(MOOD_KEY));
+                TextView mood_view = (TextView) findViewById(R.id.textView6);
+                mood_view.setText(Integer.toString(passStudent.getMood()));
+            }
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Update denied.", Toast.LENGTH_LONG).show();
+        }
+    }
+
 }

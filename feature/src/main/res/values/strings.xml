@@ -15,5 +15,6 @@
     <string name="studentInfo">Student Information:</string>
     <string name="image">image</string>
     <string name="save">Save</string>
+    <string name="Save_button_text">SAVE</string>
 
 </resources>
