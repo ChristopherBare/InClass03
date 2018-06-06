@@ -50,6 +50,10 @@ private int mood;
         return mood;
     }
 
+    public String getMoodString() {
+        return Integer.toString(getMood());
+    }
+
     public void setMood(int mood) {
         this.mood = mood;
     }
