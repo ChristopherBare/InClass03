@@ -1,0 +1,16 @@
+<resources>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="department">Department:</string>
+    <string name="mood">Your current mood:</string>
+    <string name="SIS">SIS</string>
+    <string name="CS">CS</string>
+    <string name="BIO">BIO</string>
+    <string name="other">Other</string>
+    <string name="submit">Submit</string>
+    <string name="nameText">Name:</string>
+    <string name="emailText">Email:</string>
+    <string name="departmentText">Department:</string>
+    <string name="moodText">Mood:</string>
+    <string name="studentInfo">Student Information:</string>
+</resources>
