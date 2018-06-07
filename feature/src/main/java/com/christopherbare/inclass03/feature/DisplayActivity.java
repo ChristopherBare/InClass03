@@ -111,28 +111,28 @@ public class DisplayActivity extends AppCompatActivity {
             if (requestCode == NAME_CODE) {
                 passStudent.setName(data.getExtras().getString(NAME_KEY));
                 TextView name_view = (TextView) findViewById(R.id.textView);
-                name_view.setText(passStudent.getName());
+                name_view.setText("Name: " + passStudent.getName());
             }
 
             //if email changed
             if (requestCode == EMAIL_CODE) {
                 passStudent.setEmail(data.getExtras().getString(EMAIL_KEY));
                 TextView email_view = (TextView) findViewById(R.id.textView4);
-                email_view.setText(passStudent.getEmail());
+                email_view.setText("Email: " + passStudent.getEmail());
             }
 
             //if department changed
             if (requestCode == RADIO_CODE) {
                 passStudent.setDepartment(data.getExtras().getString(RADIO_KEY));
                 TextView radio_view = (TextView) findViewById(R.id.textView5);
-                radio_view.setText(passStudent.getDepartment());
+                radio_view.setText("Department: " + passStudent.getDepartment());
             }
 
             //if mood changed
             if (requestCode == MOOD_CODE) {
                 passStudent.setMood(data.getExtras().getInt(MOOD_KEY));
                 TextView mood_view = (TextView) findViewById(R.id.textView6);
-                mood_view.setText(Integer.toString(passStudent.getMood()));
+                mood_view.setText("Mood: " + Integer.toString(passStudent.getMood()));
             }
         }
         else {
