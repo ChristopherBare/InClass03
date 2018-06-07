@@ -1,4 +1,9 @@
 package com.christopherbare.inclass03.feature;
+/**
+ * Christopher Bare
+ * Assignment 03
+ * 800789199
+ */
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
